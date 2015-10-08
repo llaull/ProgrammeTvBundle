@@ -20,6 +20,12 @@ class Programme {
     protected $id;
 
     /**
+     *
+     * @ORM\Column(type="integer", unique=true)
+     */
+    protected $pid;
+
+    /**
      * @var datetime $start
      *
      * @ORM\Column(type="datetime")

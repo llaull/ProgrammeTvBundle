@@ -17,7 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\Filesystem\Filesystem;
 
-class XmlKazerCommand extends ContainerAwareCommand
+class KazerXmlCommand extends ContainerAwareCommand
 {
 
     protected function configure()

@@ -18,10 +18,16 @@ class Channel {
     protected $id;
 
     /**
-
      * @ORM\Column(type="string", length=15, unique=true)
      */
     protected $idKazer;
+
+    /**
+     *
+     * @ORM\Column(type="integer", unique=true)
+     */
+    protected $ordre;
+
 
     /**
      * @var datetime $ajouter
