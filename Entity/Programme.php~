@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ProgrammeTvBundle\Repository\ProgrammesRepository")
  * @ORM\Table(name="tv_programme")
  */
 class Programme {
@@ -17,6 +18,12 @@ class Programme {
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
+
+    /**
+     *
+     * @ORM\Column(type="integer", unique=true)
+     */
+    protected $pid;
 
     /**
      * @var datetime $start
@@ -247,12 +254,4 @@ class Programme {
         return $this->idChannel;
     }
 
-    public function findByDay($d)
-    {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT * FROM ProgrammeTvBundle:Programme p WHERE start like '.$d.'%'
-            )
-            ->getResult();
-    }
 }

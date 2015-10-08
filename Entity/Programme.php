@@ -254,4 +254,28 @@ class Programme {
         return $this->idChannel;
     }
 
+
+    /**
+     * Set pid
+     *
+     * @param integer $pid
+     *
+     * @return Programme
+     */
+    public function setPid($pid)
+    {
+        $this->pid = $pid;
+
+        return $this;
+    }
+
+    /**
+     * Get pid
+     *
+     * @return integer
+     */
+    public function getPid()
+    {
+        return $this->pid;
+    }
 }
