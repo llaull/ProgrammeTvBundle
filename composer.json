@@ -1,0 +1,35 @@
+{
+    "name": "ProgrammeTvBundle",
+    "type": "bundle",
+    "description": "",
+    "keywords": [
+        "programme tv"
+    ],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "laurent H"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+    },
+    "require-dev": {
+        "doctrine/orm": "~2.4"
+    },
+    "suggest": {
+        "doctrine/orm": "to use the extensions with the ORM"
+    },
+    "autoload": {
+        "psr-0": { "Gedmo\\": "lib/" }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1"
+        }
+    }
+}
