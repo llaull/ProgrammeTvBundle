@@ -21,7 +21,7 @@ class Programme {
 
     /**
      *
-     * @ORM\Column(type="integer", unique=true)
+     * @ORM\Column(type="integer", unique=true, nullable=true)
      */
     protected $pid;
 

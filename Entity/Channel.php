@@ -24,7 +24,7 @@ class Channel {
 
     /**
      *
-     * @ORM\Column(type="integer", unique=true)
+     * @ORM\Column(type="integer", unique=true, nullable=true)
      */
     protected $ordre;
 
