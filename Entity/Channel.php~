@@ -6,9 +6,20 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="tv_channel")
+ * @ORM\Table(name="tv__channel")
+ * @ORM\Entity(repositoryClass="ProgrammeTvBundle\Repository\ChannelRepository")
  */
 class Channel {
+
+    public function __construct()
+    {
+        $this->added = new \DateTime();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * @ORM\Id
@@ -48,134 +59,9 @@ class Channel {
      */
     protected $codeTV;
 
-
     /**
-     * Get id
-     *
-     * @return integer
+     * @ORM\Column(type="integer", unique=true, nullable=true)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $codeZappette;
 
-    /**
-     * Set idKazer
-     *
-     * @param string $idKazer
-     *
-     * @return Channel
-     */
-    public function setIdKazer($idKazer)
-    {
-        $this->idKazer = $idKazer;
-
-        return $this;
-    }
-
-    /**
-     * Get idKazer
-     *
-     * @return string
-     */
-    public function getIdKazer()
-    {
-        return $this->idKazer;
-    }
-
-    /**
-     * Set added
-     *
-     * @param \DateTime $added
-     *
-     * @return Channel
-     */
-    public function setAdded($added)
-    {
-        $this->added = $added;
-
-        return $this;
-    }
-
-    /**
-     * Get added
-     *
-     * @return \DateTime
-     */
-    public function getAdded()
-    {
-        return $this->added;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Channel
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set codeTV
-     *
-     * @param string $codeTV
-     *
-     * @return Channel
-     */
-    public function setCodeTV($codeTV)
-    {
-        $this->codeTV = $codeTV;
-
-        return $this;
-    }
-
-    /**
-     * Get codeTV
-     *
-     * @return string
-     */
-    public function getCodeTV()
-    {
-        return $this->codeTV;
-    }
-
-    /**
-     * Set ordre
-     *
-     * @param integer $ordre
-     *
-     * @return Channel
-     */
-    public function setOrdre($ordre)
-    {
-        $this->ordre = $ordre;
-
-        return $this;
-    }
-
-    /**
-     * Get ordre
-     *
-     * @return integer
-     */
-    public function getOrdre()
-    {
-        return $this->ordre;
-    }
 }

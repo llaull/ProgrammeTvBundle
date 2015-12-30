@@ -8,9 +8,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="ProgrammeTvBundle\Repository\ProgrammesRepository")
- * @ORM\Table(name="tv_programme")
+ * @ORM\Table(name="tv__programme")
  */
 class Programme {
+
+    public function __construct()
+    {
+        $this->idChannel = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
 
     /**
      * @ORM\Id
@@ -69,12 +79,6 @@ class Programme {
      */
     protected $category;
 
-
-    public function __construct()
-    {
-
-        $this->idChannel = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id

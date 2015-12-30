@@ -6,9 +6,20 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="tv_channel")
+ * @ORM\Table(name="tv__channel")
+ * @ORM\Entity(repositoryClass="ProgrammeTvBundle\Repository\ChannelRepository")
  */
 class Channel {
+
+    public function __construct()
+    {
+        $this->added = new \DateTime();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * @ORM\Id
@@ -48,6 +59,31 @@ class Channel {
      */
     protected $codeTV;
 
+    /**
+     * @ORM\Column(type="integer", unique=true, nullable=true)
+     */
+    protected $codeZappette;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $imageB64;
+
+    /**
+     * @return mixed
+     */
+    public function getImageB64()
+    {
+        return $this->imageB64;
+    }
+
+    /**
+     * @param mixed $imageB64
+     */
+    public function setImageB64($imageB64)
+    {
+        $this->imageB64 = $imageB64;
+    }
 
     /**
      * Get id
@@ -81,6 +117,30 @@ class Channel {
     public function getIdKazer()
     {
         return $this->idKazer;
+    }
+
+    /**
+     * Set ordre
+     *
+     * @param integer $ordre
+     *
+     * @return Channel
+     */
+    public function setOrdre($ordre)
+    {
+        $this->ordre = $ordre;
+
+        return $this;
+    }
+
+    /**
+     * Get ordre
+     *
+     * @return integer
+     */
+    public function getOrdre()
+    {
+        return $this->ordre;
     }
 
     /**
@@ -156,26 +216,26 @@ class Channel {
     }
 
     /**
-     * Set ordre
+     * Set codeZappette
      *
-     * @param integer $ordre
+     * @param integer $codeZappette
      *
      * @return Channel
      */
-    public function setOrdre($ordre)
+    public function setCodeZappette($codeZappette)
     {
-        $this->ordre = $ordre;
+        $this->codeZappette = $codeZappette;
 
         return $this;
     }
 
     /**
-     * Get ordre
+     * Get codeZappette
      *
      * @return integer
      */
-    public function getOrdre()
+    public function getCodeZappette()
     {
-        return $this->ordre;
+        return $this->codeZappette;
     }
 }

@@ -110,7 +110,6 @@ class KazerXmlCommand extends ContainerAwareCommand
         if (!is_object($newChannel)) {
             $newChannel = new Channel();
             $newChannel->setIdKazer($id);
-            $newChannel->setAdded(new \DateTime);
             $newChannel->setName($name);
             $em->persist($newChannel);
         }
@@ -129,6 +128,7 @@ class KazerXmlCommand extends ContainerAwareCommand
      * @param $ssTitre
      * @param $desc
      * @param null $category
+     * @param $output
      */
     protected function programmes($em,$debut, $fin, $channel, $title, $ssTitre, $desc, $category = NULL,$output)
     {
